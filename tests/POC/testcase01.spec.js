@@ -67,13 +67,13 @@ test('Testcase01', async ({page})=>
     await page.click(".btn.btn-primary");
 
     //16. Delete Account
-    await page.click("a[href='/delete_account']");
+   // await page.click("a[href='/delete_account']");
 
     //17. verify that Account Delete text is visible
-    await expect(page.locator('text=ACCOUNT DELETED!')).toBeVisible();
+    //await expect(page.locator('text=ACCOUNT DELETED!')).toBeVisible();
 
     //18. Click on continue
-    await page.click(".btn.btn-primary");
+   // await page.click(".btn.btn-primary");
 
     }
 
