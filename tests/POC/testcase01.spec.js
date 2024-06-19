@@ -31,7 +31,7 @@ test('Testcase01', async ({page})=>
    //8. //get title - assertion
    console.log(await page.title());
    await expect(page).toHaveTitle("Automation Exercise - Signup");
-
+  // This is a comment
 
     //9. Fill details: Title, Name, Email, Password, Date of birth
     await page.check('#id_gender1');
