@@ -22,7 +22,7 @@ test('Testcase01', async ({page})=>
     
     //6. Enter name and email address
     await page.locator("input[placeholder='Name']").fill("Tony");
-    await page.locator("input[data-qa='signup-email']").fill("tonyman16@getnada.com");
+    await page.locator("input[data-qa='signup-email']").fill("tonyman17@getnada.com");
  
     //7. Click 'Signip' button
     await page.click("button[data-qa='signup-button']");
@@ -31,7 +31,6 @@ test('Testcase01', async ({page})=>
    //8. //get title - assertion
    console.log(await page.title());
    await expect(page).toHaveTitle("Automation Exercise - Signup");
-  // This is a comment
 
     //9. Fill details: Title, Name, Email, Password, Date of birth
     await page.check('#id_gender1');
@@ -68,13 +67,13 @@ test('Testcase01', async ({page})=>
     await page.click(".btn.btn-primary");
 
     //16. Delete Account
-   // await page.click("a[href='/delete_account']");
+    await page.click("a[href='/delete_account']");
 
     //17. verify that Account Delete text is visible
-   // await expect(page.locator('text=ACCOUNT DELETED!')).toBeVisible();
+    await expect(page.locator('text=ACCOUNT DELETED!')).toBeVisible();
 
     //18. Click on continue
-  //  await page.click(".btn.btn-primary");
+    await page.click(".btn.btn-primary");
 
     }
 
