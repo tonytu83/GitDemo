@@ -22,7 +22,7 @@ test('Testcase01', async ({page})=>
     
     //6. Enter name and email address
     await page.locator("input[placeholder='Name']").fill("Tony");
-    await page.locator("input[data-qa='signup-email']").fill("tonyman38@getnada.com");
+    await page.locator("input[data-qa='signup-email']").fill("tonyman39@getnada.com");
  
     //7. Click 'Signip' button
     await page.click("button[data-qa='signup-button']");
