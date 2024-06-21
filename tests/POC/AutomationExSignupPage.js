@@ -3,6 +3,7 @@ class AutomationExSignupPage {
     constructor(page)
     {
         this.page = page;
+        this.genderLocator = page.locator("#id_gender1");
         this.passwordLocator = page.locator("#password");
         this.dropdownDay = page.locator("#days")
         this.dropdownMonth = page.locator("#months")
@@ -28,9 +29,10 @@ class AutomationExSignupPage {
 
     } 
 
-    async fillCustomerDetails(password,day,month,year,fname,lname,company,address,country,state,suburb,postcode,phone)
+    async fillCustomerDetails(gender,password,day,month,year,fname,lname,company,address,country,state,suburb,postcode,phone)
     {
-        await this.page.check('#id_gender1');     
+           
+        await this.genderLocator.check(gender);
         await this.passwordLocator.fill(password);
         await this.dropdownDay.selectOption(day);
         await this.dropdownMonth.selectOption(month);

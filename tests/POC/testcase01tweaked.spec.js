@@ -31,8 +31,8 @@ customtest2('Testcase01', async ({page,testDataForCustomerCreation})=>
 
     await automationSignupPage.verifyautomationExSignupPage(expect);
 
-    await automationSignupPage.fillCustomerDetails(testDataForCustomerCreation.password,testDataForCustomerCreation.day,
-        testDataForCustomerCreation.month, testDataForCustomerCreation.year, testDataForCustomerCreation.fname, 
+    await automationSignupPage.fillCustomerDetails(testDataForCustomerCreation.gender, testDataForCustomerCreation.password,testDataForCustomerCreation.day,
+        testDataForCustomerCreation.month, testDataForCustomerCreation.year,  testDataForCustomerCreation.fname, 
         testDataForCustomerCreation.lname, testDataForCustomerCreation.company, testDataForCustomerCreation.address,
         testDataForCustomerCreation.country, testDataForCustomerCreation.state, testDataForCustomerCreation.suburb,
         testDataForCustomerCreation.postcode, testDataForCustomerCreation.phone);

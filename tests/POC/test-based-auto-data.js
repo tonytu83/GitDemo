@@ -5,7 +5,8 @@ exports.customtest2 = base.test.extend(
         testDataForCustomerCreation: {
             fname: "Tony",
             lname: "Poo",
-            username: "tonyman61@getnada.com",
+            gender: "Mr",
+            username: "tonyman62@getnada.com",
             password: "Fartboy1983!",
             day: "30",
             month: "December",
