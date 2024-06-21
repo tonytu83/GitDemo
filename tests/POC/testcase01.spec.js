@@ -1,7 +1,8 @@
 const {test, expect} = require('@playwright/test');
+const {customtest2} = require('./test-based-auto-data');
 
 
-test('Testcase01', async ({page})=>
+customtest2('Testcase01', async ({page,testDataForCustomerCreation})=>
 {
     //1. Launch browser
     
@@ -21,8 +22,8 @@ test('Testcase01', async ({page})=>
     await expect(page).toHaveTitle("Automation Exercise - Signup / Login");
     
     //6. Enter name and email address
-    await page.locator("input[placeholder='Name']").fill("Tony");
-    await page.locator("input[data-qa='signup-email']").fill("tonyman39@getnada.com");
+    await page.locator("input[placeholder='Name']").fill(testDataForCustomerCreation.fname);
+    await page.locator("input[data-qa='signup-email']").fill(testDataForCustomerCreation.username);
  
     //7. Click 'Signip' button
     await page.click("button[data-qa='signup-button']");
@@ -34,29 +35,29 @@ test('Testcase01', async ({page})=>
 
     //9. Fill details: Title, Name, Email, Password, Date of birth
     await page.check('#id_gender1');
-    await page.locator("#password").fill("Fartboy1983!");
+    await page.locator("#password").fill(testDataForCustomerCreation.password);
     const dropdownDay = page.locator("#days");
-    await dropdownDay.selectOption("30");
+    await dropdownDay.selectOption(testDataForCustomerCreation.day);
     const dropdownMonth = page.locator("#months");
-    await dropdownMonth.selectOption("December");
+    await dropdownMonth.selectOption(testDataForCustomerCreation.month);
     const dropdownYear = page.locator("#years");
-    await dropdownYear.selectOption("1983");
+    await dropdownYear.selectOption(testDataForCustomerCreation.year);
  
     //10. checkbox newsletter
     await page.locator("#newsletter").click();
     //11. checkbox special offers
     await page.locator("#optin").click();
     //12. fill in address details
-    await page.locator("#first_name").fill("Tony");
-    await page.locator("#last_name").fill("Poo");
-    await page.locator("#company").fill("Cognizant");
-    await page.locator("#address1").fill("73 Leonard Avenue");
+    await page.locator("#first_name").fill(testDataForCustomerCreation.fname);
+    await page.locator("#last_name").fill(testDataForCustomerCreation.lname);
+    await page.locator("#company").fill(testDataForCustomerCreation.company);
+    await page.locator("#address1").fill(testDataForCustomerCreation.address);
     const dropdownCountry = page.locator("#country");
-    await dropdownCountry.selectOption("Australia");
-    await page.locator("#state").fill("VIC");
-    await page.locator("#city").fill("Noble Park");
-    await page.locator("#zipcode").fill("3174");
-    await page.locator("#mobile_number").fill("0433552112");
+    await dropdownCountry.selectOption(testDataForCustomerCreation.country);
+    await page.locator("#state").fill(testDataForCustomerCreation.state);
+    await page.locator("#city").fill(testDataForCustomerCreation.suburb);
+    await page.locator("#zipcode").fill(testDataForCustomerCreation.postcode);
+    await page.locator("#mobile_number").fill(testDataForCustomerCreation.phone);
     //13. click on create account
     await page.click("button[data-qa='create-account']");
 
