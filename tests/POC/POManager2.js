@@ -1,7 +1,7 @@
 const {AutomationExHomePage} = require('./AutomationExHomePage');
 const {AutomationExLoginPage} = require('./AutomationExLoginPage');
 const {AutomationExSignupPage} = require('./AutomationExSignupPage');
-const {AutomationExCustomerCreationPage} = require('./AutomationExCustomerCreationPage');
+const {AutomationExCustomerCreationPage} = require('./AutomationExCustomerCreationConfirmationPage');
 
 
 class POManager2

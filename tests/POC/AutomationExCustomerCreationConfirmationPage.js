@@ -9,18 +9,12 @@ class AutomationExCustomerCreationPage {
 
     }
 
-    async goTo()
+    async verifyCustomerCreationPage(expect)
     {
-       await this.page.goTo("https://automationexercise.com");
+
+        await expect(this.page.locator('text=ACCOUNT CREATED!')).toBeVisible();
+        await this.page.click(".btn.btn-primary");
     }
 
-    async validLogin(username,password)
-    {
-        await this.userName.fill(username);
-        await this.password.fill(password);
-        await this.signInbutton.click();
-        await this.page.waitForLoadState('networkidle');
-       
-    }
 }
 module.exports = {AutomationExCustomerCreationPage};

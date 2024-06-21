@@ -3,8 +3,20 @@ class AutomationExSignupPage {
     constructor(page)
     {
         this.page = page;
-        this.password = page.locator("#password");
-        
+        this.passwordLocator = page.locator("#password");
+        this.dropdownDay = page.locator("#days")
+        this.dropdownMonth = page.locator("#months")
+        this.dropdownYear = page.locator("#years")
+        this.fnameLocator = page.locator("#first_name");
+        this.lnameLocator = page.locator("#last_name");
+        this.companyLocator = page.locator("#company");
+        this.addressLocator = page.locator("#address1");
+        this.countryLocator = page.locator("#country");
+        this.stateLocator = page.locator("#state");
+        this.suburbLocator = page.locator("#city");
+        this.postcodeLocator = page.locator("#zipcode");
+        this.phoneLocator = page.locator("#mobile_number");
+
     }
 
     async verifyautomationExSignupPage(expect)
@@ -16,40 +28,32 @@ class AutomationExSignupPage {
 
     } 
 
-    async fillCustomerDetails(password)
+    async fillCustomerDetails(password,day,month,year,fname,lname,company,address,country,state,suburb,postcode,phone)
     {
-        await this.page.check('#id_gender1');
-        const pwd = this.page.locator("#password");
-        await this.pwd.fill(password);
-
-      //  await this.page.locator("#password").fill(password);
-
-
-
-        
-
-        const dropdownDay = this.page.locator("#days");
-        await dropdownDay.selectOption(testDataForCustomerCreation.day);
-        const dropdownMonth = this.page.locator("#months");
-        await dropdownMonth.selectOption(testDataForCustomerCreation.month);
-        const dropdownYear = this.page.locator("#years");
-        await dropdownYear.selectOption(testDataForCustomerCreation.year);
-     
+        await this.page.check('#id_gender1');     
+        await this.passwordLocator.fill(password);
+        await this.dropdownDay.selectOption(day);
+        await this.dropdownMonth.selectOption(month);
+        await this.dropdownYear.selectOption(year);    
+   
         //10. checkbox newsletter
         await this.page.locator("#newsletter").click();
         //11. checkbox special offers
         await this.page.locator("#optin").click();
         //12. fill in address details
-        await this.page.locator("#first_name").fill(testDataForCustomerCreation.fname);
-        await this.page.locator("#last_name").fill(testDataForCustomerCreation.lname);
-        await this.page.locator("#company").fill(testDataForCustomerCreation.company);
-        await this.page.locator("#address1").fill(testDataForCustomerCreation.address);
-        const dropdownCountry = this.page.locator("#country");
-        await dropdownCountry.selectOption(testDataForCustomerCreation.country);
-        await this.page.locator("#state").fill(testDataForCustomerCreation.state);
-        await this.page.locator("#city").fill(testDataForCustomerCreation.suburb);
-        await this.page.locator("#zipcode").fill(testDataForCustomerCreation.postcode);
-        await this.page.locator("#mobile_number").fill(testDataForCustomerCreation.phone);
+
+        await this.fnameLocator.fill(fname);  
+        await this.lnameLocator.fill(lname);  
+        await this.companyLocator.fill(company);  
+        await this.addressLocator.fill(address);  
+
+        await this.countryLocator.selectOption(country);
+        await this.stateLocator.fill(state);  
+        await this.suburbLocator.fill(suburb);  
+        await this.postcodeLocator.fill(postcode);  
+        await this.phoneLocator.fill(phone);  
+     
+  
        
     }
 

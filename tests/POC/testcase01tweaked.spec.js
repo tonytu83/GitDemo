@@ -31,10 +31,16 @@ customtest2('Testcase01', async ({page,testDataForCustomerCreation})=>
 
     await automationSignupPage.verifyautomationExSignupPage(expect);
 
-    await automationSignupPage.fillCustomerDetails(testDataForCustomerCreation.password);
+    await automationSignupPage.fillCustomerDetails(testDataForCustomerCreation.password,testDataForCustomerCreation.day,
+        testDataForCustomerCreation.month, testDataForCustomerCreation.year, testDataForCustomerCreation.fname, 
+        testDataForCustomerCreation.lname, testDataForCustomerCreation.company, testDataForCustomerCreation.address,
+        testDataForCustomerCreation.country, testDataForCustomerCreation.state, testDataForCustomerCreation.suburb,
+        testDataForCustomerCreation.postcode, testDataForCustomerCreation.phone);
 
     await automationSignupPage.clickOnSignup();
     
+    const automationExCustomerCreationPage = poManager2.getAutomationExCustomerCreationPage();
+    await automationExCustomerCreationPage.verifyCustomerCreationPage(expect);
 
     
     //3. Verify that home page is visible successfully
@@ -60,10 +66,10 @@ customtest2('Testcase01', async ({page,testDataForCustomerCreation})=>
    
 
     //14. verify that Account created text is visible
-    await expect(page.locator('text=ACCOUNT CREATED!')).toBeVisible();
+   // await expect(page.locator('text=ACCOUNT CREATED!')).toBeVisible();
 
     //15. Click on continue
-    await page.click(".btn.btn-primary");
+    //await page.click(".btn.btn-primary");
 
  
 
