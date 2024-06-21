@@ -6,7 +6,7 @@ exports.customtest2 = base.test.extend(
             fname: "Tony",
             lname: "Poo",
             gender: "Mr",
-            username: "tonyman62@getnada.com",
+            username: "tonyman69@getnada.com",
             password: "Fartboy1983!",
             day: "30",
             month: "December",

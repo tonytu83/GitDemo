@@ -32,7 +32,11 @@ class AutomationExHomePage {
        
     }
 
-
+    async clickOnDelete()
+    {
+        await this.page.click('a[href="/delete_account"]');
+       
+    }
 
    
 }

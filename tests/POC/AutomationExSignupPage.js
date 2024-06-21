@@ -8,6 +8,8 @@ class AutomationExSignupPage {
         this.dropdownDay = page.locator("#days")
         this.dropdownMonth = page.locator("#months")
         this.dropdownYear = page.locator("#years")
+        this.newslettercheck = page.locator("#newsletter");
+        this.optincheck = page.locator("#optin");
         this.fnameLocator = page.locator("#first_name");
         this.lnameLocator = page.locator("#last_name");
         this.companyLocator = page.locator("#company");
@@ -39,16 +41,20 @@ class AutomationExSignupPage {
         await this.dropdownYear.selectOption(year);    
    
         //10. checkbox newsletter
-        await this.page.locator("#newsletter").click();
+    
+        await this.newslettercheck.click();
+
         //11. checkbox special offers
-        await this.page.locator("#optin").click();
-        //12. fill in address details
+        await this.optincheck.click();
+
+        
 
         await this.fnameLocator.fill(fname);  
         await this.lnameLocator.fill(lname);  
         await this.companyLocator.fill(company);  
-        await this.addressLocator.fill(address);  
 
+        //12. fill in address details
+        await this.addressLocator.fill(address);  
         await this.countryLocator.selectOption(country);
         await this.stateLocator.fill(state);  
         await this.suburbLocator.fill(suburb);  

@@ -32,7 +32,7 @@ customtest2('Testcase01', async ({page,testDataForCustomerCreation})=>
     await automationSignupPage.verifyautomationExSignupPage(expect);
 
     await automationSignupPage.fillCustomerDetails(testDataForCustomerCreation.gender, testDataForCustomerCreation.password,testDataForCustomerCreation.day,
-        testDataForCustomerCreation.month, testDataForCustomerCreation.year,  testDataForCustomerCreation.fname, 
+        testDataForCustomerCreation.month, testDataForCustomerCreation.year, testDataForCustomerCreation.fname, 
         testDataForCustomerCreation.lname, testDataForCustomerCreation.company, testDataForCustomerCreation.address,
         testDataForCustomerCreation.country, testDataForCustomerCreation.state, testDataForCustomerCreation.suburb,
         testDataForCustomerCreation.postcode, testDataForCustomerCreation.phone);
@@ -43,34 +43,10 @@ customtest2('Testcase01', async ({page,testDataForCustomerCreation})=>
     await automationExCustomerCreationPage.verifyCustomerCreationPage(expect);
 
     
-    //3. Verify that home page is visible successfully
-   
-    
-    //4. Click on sign /login button
-   
+    await automationExHomePage.clickOnDelete();
 
-    //5. verify ' New user signup!
- 
-    
-    //6. Enter name and email address
-  
-    //7. Click 'Signip' button
-
-    
-   //8. //get title - assertion
-  
-
-    //9. Fill details: Title, Name, Email, Password, Date of birth
-   
-    //13. click on create account
-   
-
-    //14. verify that Account created text is visible
-   // await expect(page.locator('text=ACCOUNT CREATED!')).toBeVisible();
-
-    //15. Click on continue
-    //await page.click(".btn.btn-primary");
-
+    const automationDeletePage = poManager2.getAutomationExDeleteConfirmationPage();
+    await automationDeletePage.continueButton()
  
 
     }
