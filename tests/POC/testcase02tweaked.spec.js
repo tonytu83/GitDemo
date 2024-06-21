@@ -2,12 +2,8 @@ const {test,expect} = require('@playwright/test');
 const {customtest2} = require('./test-based-auto-data');
 const {POManager2} = require('./POManager2');
 
-
-
-customtest2('Testcase01', async ({page,testDataForCustomerCreation})=>
+test('Testcase 02', async ({page})=>
 {
-    
-    
     const poManager2 = new POManager2(page);
     
     const automationExHomePage = poManager2.getAutomationExHomePage();
@@ -43,14 +39,19 @@ customtest2('Testcase01', async ({page,testDataForCustomerCreation})=>
     await automationExCustomerCreationPage.verifyCustomerCreationPage(expect);
     await automationExCustomerCreationPage.clickcontinuebutton();
     
+    await automationExHomePage.clickOnLogout();
+    await automationExHomePage.clickOnLogin();
+
+    await automationLoginPage.verifyLoginPage(expect);
+    await automationLoginPage.fillLoginDetails(testDataForCustomerCreation.username,testDataForCustomerCreation.password);
+    await automationLoginPage.clickOnLogin()
+    await automationExHomePage.verifyUser();
+
     await automationExHomePage.clickOnDelete();
 
     const automationDeletePage = poManager2.getAutomationExDeleteConfirmationPage();
     await automationDeletePage.continueButton()
  
-
-    }
+}
 
 );
-
-

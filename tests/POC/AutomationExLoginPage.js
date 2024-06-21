@@ -3,10 +3,11 @@ class AutomationExLoginPage {
     constructor(page)
     {
         this.page = page;
+        this.newusername = page.locator("input[data-qa='signup-email']");
+        this.existingusername = page.locator("input[data-qa='login-email']");
+
+        this.password = page.locator("input[placeholder='Password']");
         this.fname = page.locator("input[placeholder='Name']");
-        this.username = page.locator("input[data-qa='signup-email']");
-
-
      
 
     }
@@ -26,7 +27,7 @@ class AutomationExLoginPage {
       
 
         await this.fname.fill(fname);
-        await this.username.fill(username);
+        await this.newusername.fill(username);
 
 
     }
@@ -38,6 +39,22 @@ class AutomationExLoginPage {
     }
 
 
+    async fillExistingLoginDetails(username,password)
+    {
+      
+
+        await this.username.fill(username);
+        await this.password.fill(password);
+      
+
+
+    }
+
+    async clickOnLogin()
+    {
+        await this.page.click("button[data-qa='login-button']");
+       
+    }
    
 }
 module.exports = {AutomationExLoginPage};

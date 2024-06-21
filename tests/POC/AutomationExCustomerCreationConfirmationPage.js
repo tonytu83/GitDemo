@@ -13,7 +13,13 @@ class AutomationExCustomerCreationPage {
     {
 
         await expect(this.page.locator('text=ACCOUNT CREATED!')).toBeVisible();
+        await this.page.click(".btn.btn-primary")
+    }
+
+    async clickcontinuebutton()
+    {
         await this.page.click(".btn.btn-primary");
+       
     }
 
 }

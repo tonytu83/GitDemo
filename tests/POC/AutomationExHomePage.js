@@ -38,6 +38,19 @@ class AutomationExHomePage {
        
     }
 
+    async clickOnLogout()
+    {
+        await this.page.click('a[href="/logout"]');
+       
+    }
+
+    async verifyUser()
+    {
+        //17. verify that Account name text is visible
+        await expect(this.page.locator("ul[class='nav navbar-nav'] li a b")).toBeVisible();
+
+    }
+     
    
 }
 module.exports = {AutomationExHomePage};
