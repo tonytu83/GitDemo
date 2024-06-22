@@ -1,37 +1,31 @@
+// Define the AutomationExOrderReviewPage class
 class AutomationExOrderReviewPage {
 
-    constructor(page)
-    {
-        this.page = page;
+    // Constructor to initialize the class with the Playwright page instance
+    constructor(page) {
+        this.page = page; // Store the page instance for later use
+        // Define locator for the comment text area
         this.commentLocator = page.locator('textarea[name="message"]');
-       // this.deliveryaddressLocator = page.locator('ul[id="address_delivery"] li[class="address_firstname address_lastname"]');
     }
 
-    async verifyReviewPage(expect)
-    {
-    
+    // Method to verify that the review page is loaded successfully and the delivery address is correct
+    async verifyReviewPage(expect) {
+        // Verify that the delivery address text matches the expected address
         await expect(this.page.locator('ul[id="address_delivery"] li:nth-child(4)')).toHaveText('73 Leonard Avenue');
-
-       
-        //await expect(this.page.locator()).toHaveText(testDataForCustomerCreation.address);
-       
-      
     }
 
-    async populateOrderMessage()
-    {
-       
+    // Method to fill in a comment in the order message text area
+    async populateOrderMessage() {
+        // Fill the comment text area with a message
         await this.commentLocator.fill('Please deliver between 9 AM and 5 PM.');
-      
-      
     }
 
-    async continue()
-    {
-       
+    // Method to click the continue button to proceed to the next step in the checkout process
+    async continue() {
+        // Click the continue button
         await this.page.click('.btn.btn-default.check_out');
-      
     }
-
 }
-module.exports = {AutomationExOrderReviewPage};
+
+// Export the AutomationExOrderReviewPage class for use in other files
+module.exports = { AutomationExOrderReviewPage };

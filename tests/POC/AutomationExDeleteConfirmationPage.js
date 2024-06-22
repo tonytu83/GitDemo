@@ -1,24 +1,25 @@
+// Define the AutomationExDeletePage class
 class AutomationExDeletePage {
 
-    constructor(page)
-    {
-        this.page = page;
+    // Constructor to initialize the class with the Playwright page instance
+    constructor(page) {
+        this.page = page; // Store the page instance for later use
+        // Define locator for the continue button on the deletion confirmation page
         this.continuebutton = page.locator(".btn.btn-primary");
-       
-
     }
 
-    async verifyDeleteConfirmationPage(expect)
-    {
-
+    // Method to verify that the account deletion confirmation page is loaded successfully
+    async verifyDeleteConfirmationPage(expect) {
+        // Verify that the "ACCOUNT DELETED!" text is visible on the page
         await expect(this.page.locator('text=ACCOUNT DELETED!')).toBeVisible();
-
     }
 
-    async continueButton()
-    {
+    // Method to click the continue button on the deletion confirmation page
+    async continueButton() {
+        // Click the continue button
         await this.continuebutton.click();
-       
     }
 }
-module.exports = {AutomationExDeletePage};
+
+// Export the AutomationExDeletePage class for use in other files
+module.exports = { AutomationExDeletePage };
