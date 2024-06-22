@@ -43,7 +43,7 @@ class AutomationExLoginPage {
     {
       
 
-        await this.username.fill(username);
+        await this.existingusername.fill(username);
         await this.password.fill(password);
       
 

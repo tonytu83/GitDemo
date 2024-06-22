@@ -44,9 +44,9 @@ class AutomationExHomePage {
        
     }
 
-    async verifyUser()
+    async verifyUser(expect)
     {
-        //17. verify that Account name text is visible
+    
         await expect(this.page.locator("ul[class='nav navbar-nav'] li a b")).toBeVisible();
 
     }

@@ -41,7 +41,7 @@ customtest2('Testcase01', async ({page,testDataForCustomerCreation})=>
     
     const automationExCustomerCreationPage = poManager2.getAutomationExCustomerCreationPage();
     await automationExCustomerCreationPage.verifyCustomerCreationPage(expect);
-    await automationExCustomerCreationPage.clickcontinuebutton();
+    //await automationExCustomerCreationPage.clickcontinuebutton();
     
     await automationExHomePage.clickOnDelete();
 
