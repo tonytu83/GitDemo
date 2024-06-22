@@ -44,12 +44,26 @@ class AutomationExHomePage {
        
     }
 
+    async clickOnProductsPage()
+    {
+    await this.page.click('a[href="/products"]');
+
+    }
+
     async verifyUser(expect)
     {
     
         await expect(this.page.locator("ul[class='nav navbar-nav'] li a b")).toBeVisible();
 
     }
+
+    async clickOnCart()
+    {
+    
+        await this.page.click('header[id="header"] li:nth-child(3) a:nth-child(1)');
+
+    }
+
      
    
 }
