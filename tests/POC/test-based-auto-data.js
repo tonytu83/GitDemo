@@ -7,7 +7,7 @@ exports.customtest2 = base.test.extend(
             fname: "Tony",
             lname: "Poo",
             gender: "Mr",
-            username: "tonyman107@getnada.com",
+            username: "tonyman105@getnada.com",
             password: "Fartboy1983!",
             day: "30",
             month: "December",
@@ -20,6 +20,10 @@ exports.customtest2 = base.test.extend(
             postcode: "3174",
             phone: "0433552111"
             
+        },
+        testDataForExistingCustomer: {   // Defining test data for customer creation
+            username: "tonyman105@getnada.com",
+            password: "Fartboy1983!"            
         },
         testDataForCreditCard: { // Defining test data for credit card
             nameoncard: "Tony Tu", 

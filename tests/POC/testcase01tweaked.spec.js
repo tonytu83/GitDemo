@@ -43,10 +43,10 @@ customtest2('Testcase01', async ({page,testDataForCustomerCreation})=>
     await automationExCustomerCreationPage.verifyCustomerCreationPage(expect);
     //await automationExCustomerCreationPage.clickcontinuebutton();
     
-    await automationExHomePage.clickOnDelete();
+   // await automationExHomePage.clickOnDelete();
 
-    const automationDeletePage = poManager2.getAutomationExDeleteConfirmationPage();
-    await automationDeletePage.continueButton()
+    //const automationDeletePage = poManager2.getAutomationExDeleteConfirmationPage();
+    //await automationDeletePage.continueButton()
  
 
     }
