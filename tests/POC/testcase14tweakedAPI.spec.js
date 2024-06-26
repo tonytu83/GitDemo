@@ -1,35 +1,42 @@
 // Importing necessary modules from Playwright
-const {test, expect, request} = require('@playwright/test');
+const {test, expect} = require('@playwright/test');
 // Importing custom test data and page objects
 const {customtest2} = require('./test-based-auto-data');
 const {POManager2} = require('./POManager2');
 
 
 
-test.beforeAll(async({browser, testDataForExistingCustomer})=>
+let webContext;
+
+test.beforeAll(async({browser})=>
 {
-  const context = await browser.newContext();
-  
-  const poManager2 = new poManager2(context);
-  const automationExHomePage = poManager2.getAutomationExHomePage();
-  await automationExHomePage.goTo();
-  // 2. Verify that home page is visible successfully
-  await automationExHomePage.verifyHomePage(expect);
-  await automationExHomePage.clickOnLogin();
-  const automationExLoginPage = poManager2.getAutomationExLoginPage();
-  await automationExLoginPage.verifyLoginPage(expect);
-  await automationExLoginPage.fillExistingLoginDetails(testDataForExistingCustomer.username, testDataForExistingCustomer.password)
-  await automationExLoginPage.clickOnLogin();
-  await context.storageState({path: 'state.json'});
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto("https://automationexercise.com/login");
+    await page.locator("input[data-qa='login-email']").fill("tonyman105@getnada.com");
+    await page.locator("input[placeholder='Password']").fill("Fartboy1983!");
+    await page.locator("button[data-qa='login-button']").click();
+    await page.waitForLoadState('networkidle');
+    await context.storageState({path: 'state.json'});
+    webContext = await browser.newContext({storageState:'state.json'});
 
 
-})
+  })
+
 
 
 // Define a custom test with a descriptive name
-customtest2('Place Order: Register while Checkout', async ({page, testDataForCreditCard}) => {
-  // 1. Launch browser and navigate to the URL
+customtest2('Place Order: Register while Checkout', async ({testDataForCreditCard}) => {
+ // 1. Launch browser and navigate to the URL
+ const page = await webContext.newPage();
+ const poManager2 = new POManager2(page);
+ const automationExHomePage = poManager2.getAutomationExHomePage();
 
+
+ await automationExHomePage.goTo();
+
+ // 2. Verify that home page is visible successfully
+  await automationExHomePage.verifyHomePage(expect);
 
 
   // 3. Click on products page

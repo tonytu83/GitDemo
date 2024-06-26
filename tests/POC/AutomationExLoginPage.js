@@ -10,6 +10,7 @@ class AutomationExLoginPage {
         this.password = page.locator("input[placeholder='Password']");
         this.fname = page.locator("input[placeholder='Name']");
     }
+    
 
     // Method to verify that the login page is loaded successfully
     async verifyLoginPage(expect) {

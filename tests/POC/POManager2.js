@@ -10,6 +10,7 @@ const { AutomationExOrderReviewPage} = require('./AutomationExOrderReviewPage');
 const { AutomationExPaymentDetailPage} = require('./AutomationExPaymentDetailPage');
 const {AutomationExPaymentOrderConfirmationPage} = require('./AutomationExPaymentOrderConfirmationPage');
 
+
 // Define the Page Object Manager class
 class POManager2
 {
@@ -29,8 +30,11 @@ constructor(page)
     this.automationReviewPage = new AutomationExOrderReviewPage(this.page);
     this.automationPaymentPage = new AutomationExPaymentDetailPage(this.page);
     this.automationPaymentOrderConfirmationPage = new AutomationExPaymentOrderConfirmationPage(this.page);
-       
+ 
 }
+
+
+
  // Getter method to return the Payment Page object
 getAutomationPaymentPage()
 {
