@@ -313,7 +313,7 @@ class AutomationExCartPage {
                     {
                         // response,
                         // body: ,
-
+						status: 200,
                         contentType: 'text/html',
                         body: this.fakeHtmlResponse
 
