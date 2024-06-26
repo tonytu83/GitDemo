@@ -60,8 +60,8 @@ customtest2('Place Order: Register while Checkout', async ({testDataForCreditCar
   await automationCartPage.verifyCartPage(expect);
 
   // 6. Click 'Proceed To Checkout' button
-  await automationCartPage.clickcheckoutbutton();
-
+  await automationCartPage.clickfakecheckoutbutton();
+  //await automationCartPage.clickcheckoutbutton();
 
   // 13. Verify Address Details and Review Your Order
   const automationReviewPage = poManager2.getAutomationReviewPage();
