@@ -44,7 +44,7 @@ test.beforeAll(async ({ browser }) => {
 
   // Introduce a delay before clicking the submit button 
 
-  await page.waitForTimeout(1000); // 1000 milliseconds = 1 second 
+  await page.waitForTimeout(10000); // 1000 milliseconds = 1 second 
   await page.locator('#submit_btn').click();
 
   await waitForSelectorWithRetry(page, '#password');
